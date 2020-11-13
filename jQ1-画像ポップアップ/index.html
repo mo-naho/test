@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ポップアップ表示　－　④拡大表示解除</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+  <body>
+  <h1>再クリックでポップアップ表示を解除</h1>
+  <div class="gallery"><img src="cat_mini.gif" border="1"></div>
+  <div id="back-curtain"></div>
+  <div id="largeImg"><img width="400" src="cat.gif"></div>
+
+  <script type="text/javascript">
+  $('.gallery img').click(function(e) {
+  	$('#back-curtain')
+  		.css({
+  			'width' : $(window).width(),	// ウィンドウ幅
+  			'height': $(window).height()	// 同 高さ
+  		})
+  		.show();
+  	$('#largeImg')
+  		.css({
+  			'position': 'absolute',
+  			'left'    : Math.floor(($(window).width() - 400) / 2) + 'px',
+  			'top'     : $(window).scrollTop() + 30 + 'px'
+  		})
+  		.fadeIn();
+  });
+  // ④暗幕と拡大画像を非表示
+  $('#back-curtain, #largeImg').click(function() {
+  	$('#largeImg').fadeOut('slow', function() {
+      $('#back-curtain').hide();
+    });
+  });
+  </script>
+</body>
+</html>

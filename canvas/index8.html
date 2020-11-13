@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script>
+    function draw() {
+      var cs  = document.getElementById('area');
+      var ctx = cs.getContext('2d');
+      var w = cs.width;
+      var h = cs.height;
+      var x = 0;
+      var r = 5;
+      var j = 1;
+
+      // ctx.fillStyle = "#000";
+
+      for (var i = 50; i < w + 100; i += 100) {
+        for (var ii = 50; ii < h + 100; ii += 100) {
+          ctx.beginPath();
+          ctx.arc(i,ii,r,0,Math.PI*2,true);
+          ctx.fill();
+        }
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 50; i < w + 100; i += 100) {
+          for (var ii = 50; ii < h + 100; ii += 100) {
+            ctx.beginPath();
+            ctx.arc(i,ii,r,0,Math.PI*2,true);
+            ctx.fill();
+          }
+        }
+
+        if (r <= 0) {
+          j = 1;
+        } else if (r >= 50) {
+          j = 0;
+        }
+
+        if(j == 0){
+          r -= 1;
+        } else if (j == 1) {
+          r += 1;
+        }
+        console.log(j);
+        console.log(r);
+      }
+
+      setInterval(render, 100);
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="1400" height="750"></canvas>
+ </body>
+</html>

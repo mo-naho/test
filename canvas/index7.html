@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script type="application/javascript">
+    function draw() {
+      var cs  = document.getElementById('area');
+      var ctx = cs.getContext('2d');
+      var w = cs.width;
+      var h = cs.height;
+      var x = 0;
+
+      ctx.fillStyle = "#f0A";
+
+      for (var i = 50; i < w + 100; i += 100) {
+        for (var ii = 50; ii < h + 100; ii += 100) {
+          // var r = Math.floor(Math.random() * 256);
+          // var g = Math.floor(Math.random() * 256);
+          // var b = Math.floor(Math.random() * 256);
+          // ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+
+          ctx.beginPath();
+          ctx.arc(i,ii,50,0,Math.PI*2,true);
+          ctx.fill();
+        }
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, w, h);
+
+        for (var i = 50; i < w + 100; i += 100) {
+          var r = Math.floor(Math.random() * 256);
+          var g = Math.floor(Math.random() * 256);
+          var b = Math.floor(Math.random() * 256);
+          ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+          for (var ii = 50; ii < h + 100; ii += 100) {
+            ctx.beginPath();
+            ctx.arc(i,ii,50,0,Math.PI*2,true);
+            ctx.fill();
+          }
+        }
+      }
+
+      setInterval(render, 300);
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="1400" height="750"></canvas>
+ </body>
+</html>

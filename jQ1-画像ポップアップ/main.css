@@ -1,0 +1,19 @@
+/*----------------------------
+全体
+----------------------------*/
+html,body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#largeImg{
+  display: none;
+}
+#back-curtain{
+  background: rgba(0, 0, 0, 0.5);	//
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

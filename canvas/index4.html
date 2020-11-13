@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <script type="application/javascript">
+    function draw() { //drawという名前の関数の作成
+      var canvas = document.getElementById("area"); //canvasの中身の取得
+      var ctx = canvas.getContext("2d"); //2Dの描画をするという宣言
+
+      setInterval(render, 100);
+
+      ctx.fillStyle = "#ffd700";
+      // ctx.beginPath();
+      // ctx.moveTo(20,70);
+      // ctx.lineTo(100,70);
+      // ctx.lineTo(100,40);
+      // ctx.lineTo(150,90);
+      // ctx.lineTo(100,140);
+      // ctx.lineTo(100,110);
+      // ctx.lineTo(20,110);
+      // ctx.closePath();
+      // ctx.fill();
+
+      var w = canvas.width;
+      var h = canvas.height;
+      var x = 20;
+      var yt = 70;
+      var yb = 110;
+      var yt2 = 40;
+      var yb2 = 140;
+
+      function render(){
+        ctx.clearRect(0,0,w,h);
+        ctx.beginPath();
+        ctx.moveTo(20,70);
+        for (var i = 20; i < 141; i++) {
+          if (i < 101) {
+            ctx.lineTo(i,yt);
+            ctx.lineTo(i,yb);
+          } else {
+            ctx.lineTo(100,yt);
+            ctx.lineTo(i,yt2);
+            ctx.lineTo(i,yb2);
+            ctx.lineTo(100,yb);
+            yt--;
+            yb--;
+          }
+          ctx.lineTo(20,110);
+          ctx.colsePath();
+          ctx.fill();
+        }
+      }
+
+    }
+  </script>
+
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="180" height="300"></canvas>
+   <!-- canvas width:幅 height:高さ -->
+ </body>
+</html>
+<!--
+for文
+横幅180px,高さ300px
+
+ -->

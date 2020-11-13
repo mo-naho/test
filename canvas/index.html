@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <script type="application/javascript">
+    function draw() { //drawという名前の関数の作成
+      var canvas = document.getElementById("area"); //canvasの中身の取得
+      var ctx = canvas.getContext("2d"); //2Dの描画をするという宣言
+
+      ctx.globalAlpha = 0.7; //透明度
+
+      ctx.fillStyle = "#335599"; //これより下のfillの色
+      ctx.fillRect(10,10,100,100); //塗りつぶされた四角を描画する。(x,y,width,height)
+      ctx.strokeStyle = "#FF44AA"; //これより下のstrokeの色
+      ctx.strokeRect(50,100,400,300); //枠線だけの四角を描画する。(x,y,width,height)
+      ctx.clearRect(20,20,10,100); //描画された四角の部分を透明にする。(x,y,width,height)
+
+      ctx.strokeStyle = "#000"
+      ctx.beginPath(); //描画を始めるという宣言
+      ctx.moveTo(100,250); //始点をどこにするかという指示
+      ctx.lineTo(360,200); //次の頂点の座標
+      ctx.lineTo(40,320); //１つ前の頂点からどれだけ動かした位置を次の頂点にするかという指示
+      ctx.closePath(); //描画を終わるという指示(最後の点と始点を繋げる)
+      ctx.stroke(); //点と点を結ぶ線を引くという指示
+
+      ctx.fillStyle = "#987";
+      ctx.beginPath();
+      ctx.moveTo(1000,360);
+      ctx.lineTo(200,253);
+      ctx.lineTo(20,105);
+      ctx.lineTo(100,100);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(700,500,140,0,Math.PI*1.25,true); //円を描くという指示。(x,y,半径,角度の始点,角度の終点,時計回りか反時計回りか(true or false))。Math.PI=π
+      ctx.stroke();
+
+
+    }
+  </script>
+
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="1400" height="750"></canvas>
+   <!-- canvas width:幅 height:高さ -->
+ </body>
+</html>

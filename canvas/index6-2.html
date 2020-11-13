@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <script type="application/javascript">
+    function draw() {
+      var cs  = document.getElementById('area');
+      var ctx = cs.getContext('2d');
+      var w = cs.width;
+      var h = cs.height;
+      var x = -20;
+
+      function render() {
+          // Canvas全体をクリア
+          ctx.clearRect(0, 0, w, h);
+
+          for (var xx = x; xx < cs.width; xx += 50) {
+            for (var i = 0; i < cs.height; i += 30) {
+              ctx.beginPath();
+              ctx.moveTo(xx,0 + i);
+              ctx.lineTo(xx + 10,0 + i);
+              ctx.lineTo(xx + 20,10 + i);
+              ctx.lineTo(xx + 10,20 + i);
+              ctx.lineTo(xx,20 + i);
+              ctx.lineTo(xx + 10,10 + i);
+              ctx.closePath();
+              ctx.fill();
+            }
+          }
+
+          cs.width / 50
+          if (x >= 30) {
+              x = -20;
+          } else {
+              x++;
+          }
+      }
+      setInterval(render, 10);
+    }
+    drawLoopSquare();
+  </script>
+
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="700" height="300"></canvas>
+ </body>
+</html>

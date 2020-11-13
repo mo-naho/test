@@ -1,0 +1,46 @@
+/* Practice */
+.practice{
+  /* position: relative; */
+  width: 650px;
+  padding: 20px 20px;
+  /* margin: 0 auto; */
+  background: rgb(255, 248, 88);
+  /* overflow: hidden; */
+  /* border: none; */
+  box-shadow: 5px 5px 2px darkgray;
+}
+.practice p{
+  border-top: 1px solid rgb(147, 147, 147);
+  padding-left: 5px;
+}
+.practice .underline{
+  /* border-top: 1px solid rgb(147, 147, 147); */
+  border-bottom: 1px solid rgb(147, 147, 147);
+  padding: 3px 0;
+  margin: auto;
+}
+
+img{
+  border: 2px solid red;
+}
+
+
+/*----------------------------
+全体
+----------------------------*/
+html,body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+main{
+  width: 500px;
+  margin: auto;
+}
+main p::first-line{
+  border-bottom: 2px solid red;
+}
+.practice{
+  margin: 50px auto;
+}

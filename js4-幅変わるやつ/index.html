@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+  <header>ヘッダー</header>
+  <div id="one" onclick="change1()"></div>
+  <div id="two" onclick="change2()"></div>
+  <div id="three" onclick="change3()"></div>
+
+  <script>
+  var one = document.getElementById("one");
+  var two = document.getElementById("two");
+  var three = document.getElementById("three");
+  var size1 = 33;
+  var size2 = 34;
+  var size3 = 33;
+  var min = 10;
+  var max = 100 - min * 2;
+  var check1 = 0;
+  var check2 = 0;
+  var check3 = 0;
+  var speed = 1;
+
+    function change1(){//1つ目の要素を広げる
+      if (size2 > min) {
+        size1 += 0.5;
+        size2 -= 0.5;
+        check2 = 0;
+      } else {
+        size2 = min;
+        check2 = 1;
+        if (size3 > min) {
+          size1 += 0.5;
+          size3 -= 0.5;
+          check3 = 0;
+        } else {
+          size3 = min;
+          check3 = 1;
+        }
+      }
+      if (size3 > min) {
+        size1 += 0.5;
+        size3 -= 0.5;
+        check3 = 0;
+      } else {
+        size3 = min;
+        check3 = 1;
+        if (size2 > min) {
+          size1 += 0.5;
+          size2 -= 0.5;
+          check2 = 0;
+        } else {
+          size2 = min;
+          check2 = 1;
+        }
+      }
+      if (size1 < max) {
+        check1 = 0;
+      } else {
+        check1 = 1;
+      }
+      one.style.width = size1 + "%";
+      two.style.width = size2 + "%";
+      three.style.width = size3 + "%";
+      if (check1 + check2 + check3 < 3) {
+        setTimeout("change1()", speed);
+      }
+    }
+
+    function change2(){//2つ目の要素を広げる
+      if (size1 > min) {
+        size1 -= 0.5;
+        size2 += 0.5;
+        check1 = 0;
+      } else {
+        size1 = min;
+        check1 = 1;
+        if (size3 > min) {
+          size3 -= 0.5;
+          size2 += 0.5;
+          check3 = 0;
+        } else {
+          size3 = min;
+          check3 = 1;
+        }
+      }
+      if (size3 > min) {
+        size3 -= 0.5;
+        size2 += 0.5;
+        check3 = 0;
+      } else {
+        size3 = min;
+        check3 = 1;
+        if (size1 > min) {
+          size1 -= 0.5;
+          size2 += 0.5;
+          check1 = 0;
+        } else {
+          size1 = min;
+          check1 = 1;
+        }
+      }
+      if (size2 < max) {
+        check2 = 0;
+      } else {
+        check2 = 1;
+      }
+      one.style.width = size1 + "%";
+      two.style.width = size2 + "%";
+      three.style.width = size3 + "%";
+      if (check1 + check2 + check3 < 3) {
+        setTimeout("change2()", speed);
+      }
+    }
+
+      function change3(){//3つ目の要素を広げる
+        if (size1 > min) {
+          size1 -= 0.5;
+          size3 += 0.5;
+          check1 = 0;
+        } else {
+          size1 = min;
+          check1 = 1;
+          if (size2 > min) {
+            size2 -= 0.5;
+            size3 += 0.5;
+            check2 = 0;
+          } else {
+            size2 = min;
+            check2 = 1;
+          }
+        }
+        if (size2 > min) {
+          size2 -= 0.5;
+          size3 += 0.5;
+          check2 = 0;
+        } else {
+          size2 = min;
+          check2 = 1;
+          if (size1 > min) {
+            size1 -= 0.5;
+            size3 += 0.5;
+            check1 = 0;
+          } else {
+            size1 = min;
+            check1 = 1;
+          }
+        }
+        if (size3 < max) {
+          check3 = 0;
+        } else {
+          check3 = 1;
+        }
+        one.style.width = size1 + "%";
+        two.style.width = size2 + "%";
+        three.style.width = size3 + "%";
+
+        if (check1 + check2 + check3 < 3) {
+          setTimeout("change3()", speed);
+        }
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<title>Canvas tutorial template</title>
+    <script type="text/javascript">
+    var ctx;
+
+    function init(){
+    var canvas = document.getElementById('tutorial');
+      if (canvas.getContext){
+        ctx = canvas.getContext('2d');
+        setInterval(draw, 1);
+      }
+    }
+
+    function draw() {
+      ctx.globalAlpha = 0.6;
+      for (var i = 0; i < 100; i++) {
+        ctx.beginPath();
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+        ctx.arc(Math.random()*1400,Math.random()*750,Math.random()*50,0,Math.PI*2,true);
+        ctx.fill();
+      }
+    </script>
+
+
+<body onload="init();">
+  <canvas id="tutorial" width="1400" height="750"></canvas>
+</body>

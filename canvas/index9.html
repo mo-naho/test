@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>canvas</title>
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script>
+    function draw() {
+      var cs  = document.getElementById('area');
+      var ctx = cs.getContext('2d');
+      var w = cs.width;
+      var h = cs.height;
+      var x = 0;
+      var r1 = 0;
+      var r2 = 25;
+      var j = 1;
+
+      function render() {
+        // ctx.clearRect(0, 0, w, h);
+        // for (var i1 = 50; i1 < w + 100; i1 += 100) {
+        //   for (var ii1 = 50; ii1 < h + 100; ii1 += 100) {
+        //     ctx.fillStyle = "#000";
+        //     ctx.beginPath();
+        //     ctx.arc(i1,ii1,r1,0,Math.PI*2,true);
+        //     ctx.fill();
+        //   }
+        // }
+        // if (r1 < 50) {
+        //   r1 += 1;
+        // } else {
+        //   r1 = 50;
+        // }
+
+        for (var i2 = 0; i2 < w + 100; i2 += 100) {
+          for (var ii2 = 0; ii2 < h + 100; ii2 += 100) {
+            ctx.fillStyle = "#555";
+            ctx.beginPath();
+            ctx.arc(i2,ii2,r2,0,Math.PI*2,true);
+            ctx.fill();
+          }
+        }
+        if (r2 < 50) {
+          r2 += 1;
+        } else if (r2 = 30) {
+          r2 = 0;
+        }
+
+      }
+
+      setInterval(render, 30);
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="area" width="1400" height="750"></canvas>
+ </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="main.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./jquery.inview.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+
+<body>
+  <ul class="list">
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  </ul>
+
+  <ul class="list">
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  </ul>
+
+  <ul class="list">
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  	<li class="list-mv02"><img src="image.jpg"></li>
+  </ul>
+
+  <script>
+  $(function() {
+    $('.list-mv02').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      if(isInView){
+        $(this).stop().addClass('mv02');
+      }
+      else{
+        $(this).stop().removeClass('mv02');
+      }
+    });
+  });
+  </script>
+</body>
+</html>
